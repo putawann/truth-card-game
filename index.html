@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="th"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>วงเหล้า ตอบตามจริง</title>
+<link rel="stylesheet" href="style.css"></head><body>
+<main>
+<section id="setup">
+<h1>ตอบตามจริง</h1>
+<p class="sub">เกมการ์ดคำถามสำหรับ 2 คน สลับกันจั่วการ์ด แล้วตอบตามความจริงของตัวเอง ไม่มีแพ้ชนะ เล่นจนการ์ดหมด</p>
+<label>ชื่อผู้เล่นคนที่ 1<input id="p1" maxlength="20" placeholder="ชื่อ"></label>
+<label>ชื่อผู้เล่นคนที่ 2<input id="p2" maxlength="20" placeholder="ชื่อ"></label>
+<h2>เลือกหมวดหมู่ (1 ถึง 3 หมวด) <span id="count">0/3</span></h2>
+<div id="cats"></div>
+<p id="err" class="err"></p>
+<button id="start" class="main">เริ่มเกม</button>
+</section>
+<section id="game" hidden>
+<div class="top"><span id="left"></span><button id="quit" class="ghost">กลับหน้าแรก</button></div>
+<div class="turn">ตาของ <b id="who"></b></div>
+<div id="card" class="card"><div id="tag"></div><div id="q"></div></div>
+<p class="hint">ตอบตามความจริง ถ้าไม่ตอบให้ดื่มหนึ่งแก้ว</p>
+<div class="row"><button id="skip" class="ghost">ข้าม (ดื่ม)</button><button id="next" class="main">ตอบแล้ว การ์ดต่อไป</button></div>
+</section>
+<section id="end" hidden>
+<h1>การ์ดหมดแล้ว</h1>
+<p class="sub">เล่นครบทุกคำถามในหมวดที่เลือก</p>
+<button id="again" class="main">เล่นใหม่</button>
+</section>
+</main>
+<script src="questions.js"></script>
+<script src="app.js"></script>
+</body></html>
