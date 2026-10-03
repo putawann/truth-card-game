@@ -7,9 +7,8 @@ for(const [k,c] of Object.entries(CATEGORIES)){
   el.innerHTML='<b>'+c.name+'</b><span>'+c.desc+' ('+c.questions.length+' คำถาม)</span>';
   el.onclick=()=>{
     if(sel.has(k)){sel.delete(k);el.classList.remove('on');}
-    else if(sel.size>=3){$('err').textContent='เลือกได้สูงสุด 3 หมวด';return;}
     else{sel.add(k);el.classList.add('on');}
-    $('count').textContent=sel.size+'/3';$('err').textContent='';
+    $('count').textContent=sel.size+'/'+Object.keys(CATEGORIES).length;$('err').textContent='';
   };
   wrap.appendChild(el);
 }
@@ -35,3 +34,9 @@ $('next').onclick=advance;
 $('skip').onclick=advance;
 $('quit').onclick=()=>show('setup');
 $('again').onclick=()=>show('setup');
+$('all').onclick=()=>{
+  const cards=wrap.children,keys=Object.keys(CATEGORIES);
+  const every=sel.size===keys.length;
+  keys.forEach((k,i)=>{if(every){sel.delete(k);cards[i].classList.remove('on');}else{sel.add(k);cards[i].classList.add('on');}});
+  $('count').textContent=sel.size+'/'+keys.length;$('err').textContent='';
+};
